@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.quizlet.android.javascript"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name="com.quizlet.android.javascript.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".initialization.InitializationTestActivity" />
+
+        <activity android:name=".looping.LoopingTestActivity" />
+
+        <activity android:name=".loading.LoadingTestActivity" />
+
+        <activity android:name=".grading.GradingActivity" />
+
+    </application>
+
+</manifest>

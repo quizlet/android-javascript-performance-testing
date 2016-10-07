@@ -1,0 +1,65 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+
+    defaultConfig {
+        applicationId "com.quizlet.android.javascript"
+        minSdkVersion 15
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+
+        jackOptions {
+            enabled true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'arm64-v8a', 'armeabi', 'armeabi-v7a', 'mips', 'mips64', 'x86', 'x86_64'
+            universalApk true
+        }
+    }
+
+    // arm64-v8a, armeabi, armeabi-v7a, mips, mips64, x86, x86_64
+    project.ext.versionCodes = ['arm64-v8a':1, 'armeabi':2, 'armeabi-v7a':3, 'mips':4, 'mips64':5, 'x86':6, 'x86_64':7].withDefault {0}
+
+    applicationVariants.all { variant ->
+        // assign different version code for each output
+        variant.outputs.each { output ->
+            output.versionCodeOverride =
+                    project.ext.versionCodes.get(output.getFilter(com.android.build.OutputFile.ABI)) * 1000000 + android.defaultConfig.versionCode
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:24.2.1'
+
+    compile 'com.github.ericwlange:AndroidJSCore:3.0.1'
+    compile 'com.github.evgenyneu:js-evaluator-for-android:v1.0.7'
+    compile 'com.eclipsesource.j2v8:j2v8:4.5.0@aar'
+
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.1.9'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+}

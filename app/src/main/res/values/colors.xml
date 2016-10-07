@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/indigo</color>
+    <color name="colorPrimaryDark">@color/indigo_dk</color>
+    <color name="colorPrimaryBackground">@color/indigo30</color>
+    <color name="colorAccent">@color/teal</color>
+
+    <color name="white">#ffffff</color>
+    <color name="gray90">#f0f0f0</color>
+    <color name="indigo">#4257b2</color>
+    <color name="indigo30">#c6cce8</color>
+    <color name="teal">#3ccfcf</color>
+    <color name="yellow">#ffcd1f</color>
+    <color name="indigo_dk">#3b4c9b</color>
+
+    <color name="colorBackground">@color/white</color>
+    <color name="colorBackgroundSecondary">@color/gray90</color>
+</resources>
