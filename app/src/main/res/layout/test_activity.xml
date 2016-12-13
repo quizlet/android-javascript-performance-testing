@@ -51,6 +51,12 @@
                     android:layout_height="wrap_content"
                     android:text="@string/test_engine_v8" />
 
+                <RadioButton
+                    android:id="@+id/test_option_engine_duktape"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_engine_duktape" />
+
             </RadioGroup>
 
         </LinearLayout>
