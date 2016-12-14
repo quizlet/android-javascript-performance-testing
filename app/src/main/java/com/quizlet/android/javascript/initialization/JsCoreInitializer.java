@@ -1,6 +1,5 @@
 package com.quizlet.android.javascript.initialization;
 
-import android.content.Context;
 import android.support.annotation.Nullable;
 
 import com.quizlet.android.javascript.Executor;
@@ -13,12 +12,6 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 
 class JsCoreInitializer implements Executor {
-
-    final Context mContext;
-
-    public JsCoreInitializer(Context context) {
-        mContext = context;
-    }
 
     @Override
     public void execute(final @Nullable Action1<Long> listener) {
