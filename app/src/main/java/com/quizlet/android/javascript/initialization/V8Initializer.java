@@ -18,8 +18,8 @@ class V8Initializer implements Executor {
                 () -> {
                     final long startTime = System.nanoTime();
                     V8 runtime = V8.createV8Runtime();
-                    runtime.release();
                     final long endTime = System.nanoTime();
+                    runtime.release();
                     return Observable.just(endTime - startTime);
                 }
         )

@@ -16,8 +16,7 @@ class DuktapeLoader extends BaseLoader {
 
     DuktapeLoader(final Context context) {
         super(context);
-        JsExecutionScheduler.get().createWorker()
-                .schedule(() -> mDuktape = Duktape.create());
+        mDuktape = Duktape.create();
     }
 
     @Override

@@ -15,8 +15,7 @@ class DuktapeLooper extends BaseLooper {
     Duktape mDuktape;
 
     DuktapeLooper(final Context context) {
-        JsExecutionScheduler.get().createWorker()
-                .schedule(() -> mDuktape = init(context));
+        mDuktape = init(context);
     }
 
     Duktape init(Context context) {

@@ -17,8 +17,9 @@ public class DuktapeInitializer implements Executor {
         Observable.defer(
                 () -> {
                     final long startTime = System.nanoTime();
-                    initialize();
+                    Duktape duktape = Duktape.create();
                     final long endTime = System.nanoTime();
+                    duktape.close();
                     return Observable.just(endTime - startTime);
                 }
         )
@@ -29,10 +30,5 @@ public class DuktapeInitializer implements Executor {
                         listener.call(durationNs);
                     }
                 });
-    }
-
-    void initialize() {
-        Duktape duktape = Duktape.create();
-        duktape.close();
     }
 }

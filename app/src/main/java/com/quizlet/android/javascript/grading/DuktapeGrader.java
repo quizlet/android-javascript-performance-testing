@@ -16,15 +16,14 @@ class DuktapeGrader extends BaseGrader {
 
     DuktapeGrader(final Context context) {
         super(context);
-        JsExecutionScheduler.get().createWorker()
-                .schedule(() -> mDuktape = init());
+        mDuktape = init();
     }
 
     Duktape init() {
-        Duktape v8 = Duktape.create();
-        v8.evaluate(getBaseJs());
-        v8.evaluate("var grader = LearnModeGraderFactory.create();");
-        return v8;
+        Duktape duktape = Duktape.create();
+        duktape.evaluate(getBaseJs());
+        duktape.evaluate("var grader = LearnModeGraderFactory.create();");
+        return duktape;
     }
 
     @Override
