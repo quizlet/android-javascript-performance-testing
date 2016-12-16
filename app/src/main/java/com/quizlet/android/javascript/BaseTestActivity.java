@@ -26,6 +26,8 @@ public abstract class BaseTestActivity extends AppCompatActivity {
     RadioButton mEngineJsCore;
     @BindView(R.id.test_option_engine_v8)
     RadioButton mEngineV8;
+    @BindView(R.id.test_option_engine_duktape)
+    RadioButton mEngineDuktape;
 
     @BindView(R.id.test_option_iterations)
     EditText mIterationsEditText;
@@ -98,6 +100,9 @@ public abstract class BaseTestActivity extends AppCompatActivity {
         }
         if (mEngineV8.isChecked()) {
             return Engine.J2V8;
+        }
+        if (mEngineDuktape.isChecked()) {
+            return Engine.DUKTAPE;
         }
 
         throw new IllegalStateException("Pick a Javascript engine");

@@ -19,9 +19,11 @@ public class InitializationTestActivity extends BaseTestActivity {
             case JSEVALUATOR:
                 return new JsEvalInitializer(this);
             case ANDROIDJSCORE:
-                return new JsCoreInitializer(this);
+                return new JsCoreInitializer();
             case J2V8:
-                return new V8Initializer(this);
+                return new V8Initializer();
+            case DUKTAPE:
+                return new DuktapeInitializer();
         }
         throw new IllegalStateException("Pick a Javascript engine");
     }

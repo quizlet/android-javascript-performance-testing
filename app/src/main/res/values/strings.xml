@@ -6,6 +6,7 @@
     <string name="test_engine_jsevaluator">JS Evaluator</string>
     <string name="test_engine_jscore">AndroidJSCore</string>
     <string name="test_engine_v8">J2V8</string>
+    <string name="test_engine_duktape">Duktape</string>
     <string name="start_test">Start</string>
     <string name="test_option_iterations">Iterations</string>
     <string name="test_option_iterations_hint">100</string>

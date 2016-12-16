@@ -2,24 +2,24 @@ package com.quizlet.android.javascript.initialization;
 
 import android.support.annotation.Nullable;
 
-import com.eclipsesource.v8.V8;
 import com.quizlet.android.javascript.Executor;
 import com.quizlet.android.javascript.JsExecutionScheduler;
+import com.squareup.duktape.Duktape;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 
-class V8Initializer implements Executor {
+public class DuktapeInitializer implements Executor {
 
     @Override
-    public void execute(final @Nullable Action1<Long> listener) {
+    public void execute(@Nullable Action1<Long> listener) {
         Observable.defer(
                 () -> {
                     final long startTime = System.nanoTime();
-                    V8 runtime = V8.createV8Runtime();
+                    Duktape duktape = Duktape.create();
                     final long endTime = System.nanoTime();
-                    runtime.release();
+                    duktape.close();
                     return Observable.just(endTime - startTime);
                 }
         )

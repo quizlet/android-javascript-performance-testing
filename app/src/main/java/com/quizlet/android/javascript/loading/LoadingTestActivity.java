@@ -22,6 +22,8 @@ public class LoadingTestActivity extends BaseTestActivity {
                 return new JsCoreLoader(this);
             case J2V8:
                 return new V8Loader(this);
+            case DUKTAPE:
+                return new DuktapeLoader(this);
         }
         throw new IllegalStateException("Pick a Javascript engine");
     }

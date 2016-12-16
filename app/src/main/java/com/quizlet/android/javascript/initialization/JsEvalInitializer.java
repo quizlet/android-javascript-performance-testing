@@ -19,12 +19,9 @@ class JsEvalInitializer implements Executor {
     @Override
     public void execute(final @Nullable Action1<Long> listener) {
         final long startTime = System.nanoTime();
-
-        // Create and destroy the JsEvaluator instance
         JsEvaluator evaluator = new JsEvaluator(mContext);
-        evaluator.destroy();
-
         final long endTime = System.nanoTime();
+        evaluator.destroy();
 
         if (listener != null) {
             listener.call(endTime - startTime);

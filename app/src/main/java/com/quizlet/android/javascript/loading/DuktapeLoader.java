@@ -1,25 +1,31 @@
-package com.quizlet.android.javascript.initialization;
+package com.quizlet.android.javascript.loading;
 
+import android.content.Context;
 import android.support.annotation.Nullable;
 
-import com.eclipsesource.v8.V8;
-import com.quizlet.android.javascript.Executor;
 import com.quizlet.android.javascript.JsExecutionScheduler;
+import com.squareup.duktape.Duktape;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 
-class V8Initializer implements Executor {
+class DuktapeLoader extends BaseLoader {
+
+    Duktape mDuktape;
+
+    DuktapeLoader(final Context context) {
+        super(context);
+        mDuktape = Duktape.create();
+    }
 
     @Override
-    public void execute(final @Nullable Action1<Long> listener) {
+    public void execute(@Nullable final Action1<Long> listener) {
         Observable.defer(
                 () -> {
                     final long startTime = System.nanoTime();
-                    V8 runtime = V8.createV8Runtime();
+                    mDuktape.evaluate(getJs());
                     final long endTime = System.nanoTime();
-                    runtime.release();
                     return Observable.just(endTime - startTime);
                 }
         )
