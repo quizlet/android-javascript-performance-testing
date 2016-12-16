@@ -20,3 +20,9 @@ JavaScriptCore is the Javascript engine written in C, used in iOS 7 and above. A
 https://github.com/eclipsesource/J2V8
 
 V8 is Google's open source high-performance JavaScript engine, written in C++ and used in Google Chrome. J2V8 implements a set of Java bindings for V8.
+
+### Duktape Android ###
+
+https://github.com/square/duktape-android
+
+Duktape is a small, embeddable JavaScript engine focused on portability. This library packages Duktape for use on Android devices and provides an API for integrating Java code with JavaScript.
