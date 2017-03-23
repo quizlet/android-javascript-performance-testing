@@ -24,6 +24,8 @@ public class LoopingTestActivity extends BaseTestActivity {
                 return new V8Looper(this);
             case DUKTAPE:
                 return new DuktapeLooper(this);
+            case RHINO:
+                return new RhinoLooper(this);
         }
         throw new IllegalStateException("Pick a Javascript engine");
     }

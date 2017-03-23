@@ -24,6 +24,8 @@ public class GradingActivity extends BaseTestActivity {
                 return new V8Grader(this);
             case DUKTAPE:
                 return new DuktapeGrader(this);
+            case RHINO:
+                return new RhinoGrader(this);
         }
         throw new IllegalStateException("Pick a Javascript engine");
     }

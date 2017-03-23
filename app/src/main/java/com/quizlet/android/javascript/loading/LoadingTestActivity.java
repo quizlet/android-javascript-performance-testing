@@ -24,6 +24,8 @@ public class LoadingTestActivity extends BaseTestActivity {
                 return new V8Loader(this);
             case DUKTAPE:
                 return new DuktapeLoader(this);
+            case RHINO:
+                return new RhinoLoader(this);
         }
         throw new IllegalStateException("Pick a Javascript engine");
     }
