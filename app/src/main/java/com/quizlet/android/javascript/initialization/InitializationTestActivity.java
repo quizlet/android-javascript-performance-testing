@@ -24,6 +24,8 @@ public class InitializationTestActivity extends BaseTestActivity {
                 return new V8Initializer();
             case DUKTAPE:
                 return new DuktapeInitializer();
+            case RHINO:
+                return new RhinoInitializer();
         }
         throw new IllegalStateException("Pick a Javascript engine");
     }
